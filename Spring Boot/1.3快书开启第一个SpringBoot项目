@@ -1,0 +1,381 @@
+1.3.1 配置环境
+$ java -version
+$gradle -v
+
+1.3.2 通过 SprinSpring Initializr 初始化一个 Spring Boot 原型
+（参考，作者开源的GitHub书 链接 https://waylau.gitbooks.io/spring-boot-tutorial/content/docs/quick-start-with-initializr.html ）
+
+Spring Initalizr（访问网站 https://start.spring.io/） 是用于初始化 Spring Boot 项目的可视化平台。虽然通过 Maven 或者 Gradle 来添加 Spring Boot 提供的 Starter 使用起来非常简单，但是由于组件和关联部分众多，有这样一个可视化的配置构建管理平台对于用户来说非常友好。下面将演示如何通过 Spring Initalizr 初始化一个 Spring Boot 项目原型。
+（包名com.yiqun.spring.boot.blog 项目名initializr-start）
+选择“Gradle Project”、“Java”、默认的“Spring Boot 2.0.4”、Group“com.example”、Artifact“demo”、
+以及Dependencies输入“Web”选择“Web-Full-stack web development with Tomcat and Spring MVC” ，
+然后点击“Generate Project”按钮，此时浏览器就开始下载以项目“demo”命名的zip包。该压缩包包含了这个原型项目的所有源码及配置。
+Mac下解压发现项目的根目录为“A-start.spring.io-demo” 。
+
+1.3.3 用 Gradle 编译项目
+在项目根目录 “A-start.spring.io-demo” 下，执行 gradle build 命令 来对项目进行构建，构建过程如下。
+
+FullInSpringCloud:~ fullinspringcloud$ cd /Users/fullinspringcloud/Downloads/A-start.spring.io-demo
+FullInSpringCloud:A-start.spring.io-demo fullinspringcloud$ gradle build
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+> Configure project :
+Unable to locate local Maven repository.
+
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-gradle-plugin/2.0.4.RELEASE/spring-boot-gradle-plugin-2.0.4.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-tools/2.0.4.RELEASE/spring-boot-tools-2.0.4.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-parent/2.0.4.RELEASE/spring-boot-parent-2.0.4.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.0.4.RELEASE/spring-boot-dependencies-2.0.4.RELEASE.po
+Download https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.9.6/jackson-bom-2.9.6.pom
+Download https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-parent/2.9.1.1/jackson-parent-2.9.1.1.pom
+Download https://repo.maven.apache.org/maven2/com/fasterxml/oss-parent/33/oss-parent-33.pom
+Download https://repo.maven.apache.org/maven2/io/netty/netty-bom/4.1.27.Final/netty-bom-4.1.27.Final.pom
+Download https://repo.maven.apache.org/maven2/io/projectreactor/reactor-bom/Bismuth-SR10/reactor-bom-Bismuth-SR10.pom
+Download https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-bom/2.10.0/log4j-bom-2.10.0.pom
+Download https://repo.maven.apache.org/maven2/org/apache/logging/logging-parent/1/logging-parent-1.pom
+Download https://repo.maven.apache.org/maven2/org/apache/apache/18/apache-18.pom
+Download https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-bom/9.4.11.v20180605/jetty-bom-9.4.11.v20180605.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/spring-framework-bom/5.0.8.RELEASE/spring-framework-bom-5.0.8.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/data/spring-data-releasetrain/Kay-SR9/spring-data-releasetrain-Kay-SR9.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/data/build/spring-data-build/2.0.9.RELEASE/spring-data-build-2.0.9.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/integration/spring-integration-bom/5.0.7.RELEASE/spring-integration-bom-5.0.7.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-bom/5.0.7.RELEASE/spring-security-bom-5.0.7.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/session/spring-session-bom/Apple-SR4/spring-session-bom-Apple-SR4.pom
+Download https://repo.maven.apache.org/maven2/io/spring/gradle/dependency-management-plugin/1.0.6.RELEASE/dependency-management-plugin-1.0.6.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-loader-tools/2.0.4.RELEASE/spring-boot-loader-tools-2.0.4.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.14/commons-compress-1.14.pom
+Download https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/42/commons-parent-42.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/spring-core/5.0.8.RELEASE/spring-core-5.0.8.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/spring-jcl/5.0.8.RELEASE/spring-jcl-5.0.8.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/io/spring/gradle/dependency-management-plugin/1.0.6.RELEASE/dependency-management-plugin-1.0.6.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-gradle-plugin/2.0.4.RELEASE/spring-boot-gradle-plugin-2.0.4.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.14/commons-compress-1.14.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/spring-jcl/5.0.8.RELEASE/spring-jcl-5.0.8.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-loader-tools/2.0.4.RELEASE/spring-boot-loader-tools-2.0.4.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/spring-core/5.0.8.RELEASE/spring-core-5.0.8.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-web/2.0.4.RELEASE/spring-boot-starter-web-2.0.4.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starters/2.0.4.RELEASE/spring-boot-starters-2.0.4.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-json/2.0.4.RELEASE/spring-boot-starter-json-2.0.4.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/spring-webmvc/5.0.8.RELEASE/spring-webmvc-5.0.8.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-tomcat/2.0.4.RELEASE/spring-boot-starter-tomcat-2.0.4.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter/2.0.4.RELEASE/spring-boot-starter-2.0.4.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/spring-web/5.0.8.RELEASE/spring-web-5.0.8.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/hibernate/validator/hibernate-validator/6.0.11.Final/hibernate-validator-6.0.11.Final.pom
+Download https://repo.maven.apache.org/maven2/org/hibernate/validator/hibernate-validator-parent/6.0.11.Final/hibernate-validator-parent-6.0.11.Final.pom
+Download https://repo.maven.apache.org/maven2/org/jboss/arquillian/arquillian-bom/1.1.11.Final/arquillian-bom-1.1.11.Final.pom
+Download https://repo.maven.apache.org/maven2/org/jboss/shrinkwrap/shrinkwrap-bom/1.2.3/shrinkwrap-bom-1.2.3.pom
+Download https://repo.maven.apache.org/maven2/org/jboss/shrinkwrap/resolver/shrinkwrap-resolver-bom/2.2.0/shrinkwrap-resolver-bom-2.2.0.pom
+Download https://repo.maven.apache.org/maven2/org/jboss/shrinkwrap/descriptors/shrinkwrap-descriptors-bom/2.0.0-alpha-8/shrinkwrap-descriptors-bom-2.0.0-alpha-8.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot/2.0.4.RELEASE/spring-boot-2.0.4.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-logging/2.0.4.RELEASE/spring-boot-starter-logging-2.0.4.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-autoconfigure/2.0.4.RELEASE/spring-boot-autoconfigure-2.0.4.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/yaml/snakeyaml/1.19/snakeyaml-1.19.pom
+Download https://repo.maven.apache.org/maven2/com/fasterxml/jackson/module/jackson-module-parameter-names/2.9.6/jackson-module-parameter-names-2.9.6.pom
+Download https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.9.6/jackson-databind-2.9.6.pom
+Download https://repo.maven.apache.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.9.6/jackson-datatype-jsr310-2.9.6.pom
+Download https://repo.maven.apache.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.9.6/jackson-datatype-jdk8-2.9.6.pom
+Download https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-base/2.9.6/jackson-base-2.9.6.pom
+Download https://repo.maven.apache.org/maven2/com/fasterxml/jackson/module/jackson-modules-java8/2.9.6/jackson-modules-java8-2.9.6.pom
+Download https://repo.maven.apache.org/maven2/org/apache/tomcat/embed/tomcat-embed-core/8.5.32/tomcat-embed-core-8.5.32.pom
+Download https://repo.maven.apache.org/maven2/org/apache/tomcat/embed/tomcat-embed-el/8.5.32/tomcat-embed-el-8.5.32.pom
+Download https://repo.maven.apache.org/maven2/org/apache/tomcat/embed/tomcat-embed-websocket/8.5.32/tomcat-embed-websocket-8.5.32.pom
+Download https://repo.maven.apache.org/maven2/org/jboss/logging/jboss-logging/3.3.2.Final/jboss-logging-3.3.2.Final.pom
+Download https://repo.maven.apache.org/maven2/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.pom
+Download https://repo.maven.apache.org/maven2/com/fasterxml/classmate/1.3.4/classmate-1.3.4.pom
+Download https://repo.maven.apache.org/maven2/org/jboss/jboss-parent/15/jboss-parent-15.pom
+Download https://repo.maven.apache.org/maven2/com/fasterxml/oss-parent/24/oss-parent-24.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/spring-beans/5.0.8.RELEASE/spring-beans-5.0.8.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/spring-context/5.0.8.RELEASE/spring-context-5.0.8.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/spring-expression/5.0.8.RELEASE/spring-expression-5.0.8.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/spring-aop/5.0.8.RELEASE/spring-aop-5.0.8.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.pom
+Download https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-to-slf4j/2.10.0/log4j-to-slf4j-2.10.0.pom
+Download https://repo.maven.apache.org/maven2/org/slf4j/jul-to-slf4j/1.7.25/jul-to-slf4j-1.7.25.pom
+Download https://repo.maven.apache.org/maven2/org/slf4j/slf4j-parent/1.7.25/slf4j-parent-1.7.25.pom
+Download https://repo.maven.apache.org/maven2/ch/qos/logback/logback-parent/1.2.3/logback-parent-1.2.3.pom
+Download https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j/2.10.0/log4j-2.10.0.pom
+Download https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.9.6/jackson-core-2.9.6.pom
+Download https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.pom
+Download https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-parent/2.9.0/jackson-parent-2.9.0.pom
+Download https://repo.maven.apache.org/maven2/com/fasterxml/oss-parent/28/oss-parent-28.pom
+Download https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.pom
+Download https://repo.maven.apache.org/maven2/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.pom
+Download https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-api/2.10.0/log4j-api-2.10.0.pom
+Download https://repo.maven.apache.org/maven2/org/apache/tomcat/tomcat-annotations-api/8.5.32/tomcat-annotations-api-8.5.32.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-web/2.0.4.RELEASE/spring-boot-starter-web-2.0.4.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-json/2.0.4.RELEASE/spring-boot-starter-json-2.0.4.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-tomcat/2.0.4.RELEASE/spring-boot-starter-tomcat-2.0.4.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter/2.0.4.RELEASE/spring-boot-starter-2.0.4.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/spring-web/5.0.8.RELEASE/spring-web-5.0.8.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/spring-webmvc/5.0.8.RELEASE/spring-webmvc-5.0.8.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-autoconfigure/2.0.4.RELEASE/spring-boot-autoconfigure-2.0.4.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot/2.0.4.RELEASE/spring-boot-2.0.4.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-logging/2.0.4.RELEASE/spring-boot-starter-logging-2.0.4.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/spring-context/5.0.8.RELEASE/spring-context-5.0.8.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/spring-aop/5.0.8.RELEASE/spring-aop-5.0.8.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/spring-beans/5.0.8.RELEASE/spring-beans-5.0.8.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/spring-expression/5.0.8.RELEASE/spring-expression-5.0.8.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/yaml/snakeyaml/1.19/snakeyaml-1.19.jar
+Download https://repo.maven.apache.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.9.6/jackson-datatype-jdk8-2.9.6.jar
+Download https://repo.maven.apache.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.9.6/jackson-datatype-jsr310-2.9.6.jar
+Download https://repo.maven.apache.org/maven2/com/fasterxml/jackson/module/jackson-module-parameter-names/2.9.6/jackson-module-parameter-names-2.9.6.jar
+Download https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.9.6/jackson-databind-2.9.6.jar
+Download https://repo.maven.apache.org/maven2/org/apache/tomcat/embed/tomcat-embed-websocket/8.5.32/tomcat-embed-websocket-8.5.32.jar
+Download https://repo.maven.apache.org/maven2/org/apache/tomcat/embed/tomcat-embed-core/8.5.32/tomcat-embed-core-8.5.32.jar
+Download https://repo.maven.apache.org/maven2/org/apache/tomcat/embed/tomcat-embed-el/8.5.32/tomcat-embed-el-8.5.32.jar
+Download https://repo.maven.apache.org/maven2/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar
+Download https://repo.maven.apache.org/maven2/org/jboss/logging/jboss-logging/3.3.2.Final/jboss-logging-3.3.2.Final.jar
+Download https://repo.maven.apache.org/maven2/com/fasterxml/classmate/1.3.4/classmate-1.3.4.jar
+Download https://repo.maven.apache.org/maven2/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar
+Download https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-to-slf4j/2.10.0/log4j-to-slf4j-2.10.0.jar
+Download https://repo.maven.apache.org/maven2/org/slf4j/jul-to-slf4j/1.7.25/jul-to-slf4j-1.7.25.jar
+Download https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar
+Download https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.9.6/jackson-core-2.9.6.jar
+Download https://repo.maven.apache.org/maven2/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar
+Download https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar
+Download https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-api/2.10.0/log4j-api-2.10.0.jar
+Download https://repo.maven.apache.org/maven2/org/hibernate/validator/hibernate-validator/6.0.11.Final/hibernate-validator-6.0.11.Final.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-test/2.0.4.RELEASE/spring-boot-starter-test-2.0.4.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/junit/junit/4.12/junit-4.12.pom
+Download https://repo.maven.apache.org/maven2/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.pom
+Download https://repo.maven.apache.org/maven2/org/mockito/mockito-core/2.15.0/mockito-core-2.15.0.pom
+Download https://repo.maven.apache.org/maven2/org/assertj/assertj-core/3.9.1/assertj-core-3.9.1.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-test/2.0.4.RELEASE/spring-boot-test-2.0.4.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.pom
+Download https://repo.maven.apache.org/maven2/org/assertj/assertj-parent-pom/2.1.9/assertj-parent-pom-2.1.9.pom
+Download https://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.pom
+Download https://repo.maven.apache.org/maven2/org/skyscreamer/jsonassert/1.5.0/jsonassert-1.5.0.pom
+Download https://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-parent/1.3/hamcrest-parent-1.3.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/spring-test/5.0.8.RELEASE/spring-test-5.0.8.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-test-autoconfigure/2.0.4.RELEASE/spring-boot-test-autoconfigure-2.0.4.RELEASE.pom
+Download https://repo.maven.apache.org/maven2/org/xmlunit/xmlunit-core/2.5.1/xmlunit-core-2.5.1.pom
+Download https://repo.maven.apache.org/maven2/org/xmlunit/xmlunit-parent/2.5.1/xmlunit-parent-2.5.1.pom
+Download https://repo.maven.apache.org/maven2/net/minidev/json-smart/2.3/json-smart-2.3.pom
+Download https://repo.maven.apache.org/maven2/net/minidev/minidev-parent/2.3/minidev-parent-2.3.pom
+Download https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy/1.7.11/byte-buddy-1.7.11.pom
+Download https://repo.maven.apache.org/maven2/org/objenesis/objenesis/2.6/objenesis-2.6.pom
+Download https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy-agent/1.7.11/byte-buddy-agent-1.7.11.pom
+Download https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy-parent/1.7.11/byte-buddy-parent-1.7.11.pom
+Download https://repo.maven.apache.org/maven2/org/objenesis/objenesis-parent/2.6/objenesis-parent-2.6.pom
+Download https://repo.maven.apache.org/maven2/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.pom
+Download https://repo.maven.apache.org/maven2/net/minidev/accessors-smart/1.2/accessors-smart-1.2.pom
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-test/2.0.4.RELEASE/spring-boot-starter-test-2.0.4.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-test-autoconfigure/2.0.4.RELEASE/spring-boot-test-autoconfigure-2.0.4.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-test/2.0.4.RELEASE/spring-boot-test-2.0.4.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar
+Download https://repo.maven.apache.org/maven2/org/assertj/assertj-core/3.9.1/assertj-core-3.9.1.jar
+Download https://repo.maven.apache.org/maven2/org/mockito/mockito-core/2.15.0/mockito-core-2.15.0.jar
+Download https://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+Download https://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar
+Download https://repo.maven.apache.org/maven2/org/skyscreamer/jsonassert/1.5.0/jsonassert-1.5.0.jar
+Download https://repo.maven.apache.org/maven2/org/springframework/spring-test/5.0.8.RELEASE/spring-test-5.0.8.RELEASE.jar
+Download https://repo.maven.apache.org/maven2/org/xmlunit/xmlunit-core/2.5.1/xmlunit-core-2.5.1.jar
+Download https://repo.maven.apache.org/maven2/net/minidev/json-smart/2.3/json-smart-2.3.jar
+Download https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy/1.7.11/byte-buddy-1.7.11.jar
+Download https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy-agent/1.7.11/byte-buddy-agent-1.7.11.jar
+Download https://repo.maven.apache.org/maven2/org/objenesis/objenesis/2.6/objenesis-2.6.jar
+Download https://repo.maven.apache.org/maven2/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar
+Download https://repo.maven.apache.org/maven2/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar
+Download https://repo.maven.apache.org/maven2/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar
+Download https://repo.maven.apache.org/maven2/junit/junit/4.12/junit-4.12.jar
+
+> Task :test
+2018-08-27 16:03:42.237  INFO 2594 --- [       Thread-5] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@2e252993: startup date [Mon Aug 27 16:03:40 CST 2018]; root of context hierarchy
+
+BUILD SUCCESSFUL in 3m 5s
+5 actionable tasks: 5 executed
+FullInSpringCloud:A-start.spring.io-demo fullinspringcloud$ 
+
+在编译开始阶段，gradle 会解析项目配置文件，而后去找相关的依赖，并下载到本地。熟读快慢取决于用户本地的网络。
+控制台会打印整个下载、编译的过程，当然，在这里为了节省篇幅，省去了大部分的下载过程。最后，看到 “BUILD SUCCESSFUL” 字样，说明已经编译成功了。
+
+返回项目的根目录下，可以发现多出了一个 build 目录，在该目录 build/libs 下可以看到一个 “项目名-版本-SNAPSHOT版.jar”（即“demo-0.0.1-SNAPSHOT.jar），该文件就是项目编译后的可执行文件。通过下面的命令来运行该文件。
+ java -jar build/libs/demo-0.0.1-SNAPSHOT.jar
+ （备注：进入项目的命令、查看根目录下所有隐藏和可见的文件
+ $  cd /Users/fullinspringcloud/Downloads/A-start.spring.io-demo
+ $ ls -al
+ total 48
+ drwxr-xr-x@  11 fullinspringcloud  staff   352  8 27 16:03 .
+ drwx------+ 201 fullinspringcloud  staff  6432  8 27 15:35 ..
+ -rw-r--r--@   1 fullinspringcloud  staff   276  8 27 06:54 .gitignore
+ drwxr-xr-x    5 fullinspringcloud  staff   160  8 27 16:01 .gradle
+ drwxr-xr-x    8 fullinspringcloud  staff   256  8 27 16:03 build
+ -rw-r--r--@   1 fullinspringcloud  staff   597  8 27 06:54 build.gradle
+ drwxr-xr-x@   3 fullinspringcloud  staff    96  8 27 06:54 gradle
+ -rwxr-xr-x@   1 fullinspringcloud  staff  5299  8 27 06:54 gradlew
+ -rw-r--r--@   1 fullinspringcloud  staff  2260  8 27 06:54 gradlew.bat
+ -rw-r--r--@   1 fullinspringcloud  staff    26  8 27 06:54 settings.gradle
+ drwxr-xr-x@   4 fullinspringcloud  staff   128  8 27 06:54 src
+ 
+ $cd build/libs
+ $ls -al
+ total 31640
+ drwxr-xr-x  3 fullinspringcloud  staff        96  8 27 16:03 .
+ drwxr-xr-x  8 fullinspringcloud  staff       256  8 27 16:03 ..
+ -rw-r--r--  1 fullinspringcloud  staff  16198821  8 27 16:03 demo-0.0.1-SNAPSHOT.jar
+
+ ）
+
+
+成功运行后，可以在控制台看到如下输出。
+$ java -jar build/libs/demo-0.0.1-SNAPSHOT.jar
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.0.4.RELEASE)
+
+2018-08-27 16:43:53.524  INFO 2697 --- [           main] com.example.demo.DemoApplication         : Starting DemoApplication on FullInSpringCloud with PID 2697 (/Users/fullinspringcloud/Downloads/A-start.spring.io-demo/build/libs/demo-0.0.1-SNAPSHOT.jar started by fullinspringcloud in /Users/fullinspringcloud/Downloads/A-start.spring.io-demo)
+2018-08-27 16:43:53.528  INFO 2697 --- [           main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-08-27 16:43:53.594  INFO 2697 --- [           main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@38cccef: startup date [Mon Aug 27 16:43:53 CST 2018]; root of context hierarchy
+2018-08-27 16:43:55.062  INFO 2697 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-08-27 16:43:55.095  INFO 2697 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-27 16:43:55.095  INFO 2697 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-27 16:43:55.111  INFO 2697 --- [ost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/fullinspringcloud/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-08-27 16:43:55.209  INFO 2697 --- [ost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-27 16:43:55.209  INFO 2697 --- [ost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1618 ms
+2018-08-27 16:43:55.283  INFO 2697 --- [ost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-27 16:43:55.287  INFO 2697 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-27 16:43:55.287  INFO 2697 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-08-27 16:43:55.287  INFO 2697 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-08-27 16:43:55.287  INFO 2697 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-08-27 16:43:55.425  INFO 2697 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-27 16:43:55.651  INFO 2697 --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@38cccef: startup date [Mon Aug 27 16:43:53 CST 2018]; root of context hierarchy
+2018-08-27 16:43:55.747  INFO 2697 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-27 16:43:55.748  INFO 2697 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-27 16:43:55.782  INFO 2697 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-27 16:43:55.783  INFO 2697 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-27 16:43:56.003  INFO 2697 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-27 16:43:56.064  INFO 2697 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-08-27 16:43:56.070  INFO 2697 --- [           main] com.example.demo.DemoApplication         : Started DemoApplication in 3.171 seconds (JVM running for 3.714)
+
+
+从上输出内容可见：项目已启动并且是通过Tomcat容器使用端口8080。
+
+在控制台输入 “ctrl+c” ，可以关闭该程序。
+
+
+
+
+1.3.4 探索项目
+ 在启动项目后，在浏览器中输入 “http://localhost:8080/” ，可以得到如下信息。
+
+Whitelabel Error Page
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+Mon Aug 27 16:51:09 CST 2018
+There was an unexpected error (type=Not Found, status=404).
+No message available
+
+
+由于项目中还没有任何对请求的处理程序，因此Spring Boot 会出现上述默认的错误提示信息。
+
+观察一下 demo 项目的目录结构。
+initializr-start
+│  .gitignore
+│  build.gradle
+│  gradlew
+│  gradlew.bat
+│
+├─.gradle
+│  └─3.3
+│      └─taskArtifacts
+│              fileHashes.bin
+│              fileSnapshots.bin
+│              taskArtifacts.bin
+│              taskArtifacts.lock
+│
+├─build
+│  ├─classes
+│  │  ├─main
+│  │  │  └─com
+│  │  │      └─waylau
+│  │  │          └─spring
+│  │  │              └─boot
+│  │  │                      InitializrStartApplication.class
+│  │  │
+│  │  └─test
+│  │      └─com
+│  │          └─waylau
+│  │              └─spring
+│  │                  └─boot
+│  │                          InitializrStartApplicationTests.class
+│  │
+│  ├─libs
+│  │      initializr-start-0.0.1-SNAPSHOT.jar
+│  │      initializr-start-0.0.1-SNAPSHOT.jar.original
+│  │
+│  ├─reports
+│  │  └─tests
+│  │      └─test
+│  │          │  index.html
+│  │          │
+│  │          ├─classes
+│  │          │      com.waylau.spring.boot.InitializrStartApplicationTests.html
+│  │          │
+│  │          ├─css
+│  │          │      base-style.css
+│  │          │      style.css
+│  │          │
+│  │          ├─js
+│  │          │      report.js
+│  │          │
+│  │          └─packages
+│  │                  com.waylau.spring.boot.html
+│  │
+│  ├─resources
+│  │  └─main
+│  │          application.properties
+│  │
+│  ├─test-results
+│  │  └─test
+│  │      │  TEST-com.waylau.spring.boot.InitializrStartApplicationTests.xml
+│  │      │
+│  │      └─binary
+│  │              output.bin
+│  │              output.bin.idx
+│  │              results.bin
+│  │
+│  └─tmp
+│      ├─compileJava
+│      │  └─emptySourcePathRef
+│      ├─compileTestJava
+│      │  └─emptySourcePathRef
+│      └─jar
+│              MANIFEST.MF
+│
+├─gradle
+│  └─wrapper
+│          gradle-wrapper.jar
+│          gradle-wrapper.properties
+│
+└─src
+    ├─main
+    │  ├─java
+    │  │  └─com
+    │  │      └─waylau
+    │  │          └─spring
+    │  │              └─boot
+    │  │                      InitializrStartApplication.java
+    │  │
+    │  └─resources
+    │          application.properties
+    │
+    └─test
+        └─java
+            └─com
+                └─waylau
+                    └─spring
+                        └─boot
+                                InitializrStartApplicationTests.java
+
+ 
+ 
+ 
+
+
