@@ -275,36 +275,45 @@ No message available
 
 由于项目中还没有任何对请求的处理程序，因此Spring Boot 会出现上述默认的错误提示信息。
 
-观察一下 demo 项目的目录结构。
-initializr-start
+观察一下 A-start.spring.io-demo 项目的目录结构。 Demo
+A-start.spring.io-demo
 │  .gitignore
 │  build.gradle
 │  gradlew
 │  gradlew.bat
+│  settings.gradle
 │
 ├─.gradle
-│  └─3.3
-│      └─taskArtifacts
-│              fileHashes.bin
-│              fileSnapshots.bin
-│              taskArtifacts.bin
-│              taskArtifacts.lock
+│  ├─4.8
+│  |  └─fileChanges
+│  |  |          fileHashes.bin
+│  |  └─fileContent
+│  |  |            fileSnapshots.bin
+│  |  └─fileHashes
+│  |  |           taskArtifacts.bin
+│  |  └─fileChanges
+│  |            taskArtifacts.lock
+│  ├─buildOutputCleanup
+│  |      outputFiles.bin (不是书上的build.bin)
+│  |      cache.properties
+│  |      buildOutputCleanup.lock
+│  └─vcsWorkingDirs
+|  
 │
 ├─build
 │  ├─classes
-│  │  ├─main
-│  │  │  └─com
-│  │  │      └─waylau
-│  │  │          └─spring
-│  │  │              └─boot
-│  │  │                      InitializrStartApplication.class
-│  │  │
-│  │  └─test
-│  │      └─com
-│  │          └─waylau
-│  │              └─spring
-│  │                  └─boot
-│  │                          InitializrStartApplicationTests.class
+|  |  └─java
+|  │     ├─main
+|  │     │  └─com
+|  │     │      └─example
+|  │     │          └─demo
+|  │     │                   DemoApplication.class
+│  │     │  
+│  │     └─test
+│  │        └─com
+│  │           └─example
+│  │              └─demo
+│  │                         DemoApplicationTests.class
 │  │
 │  ├─libs
 │  │      initializr-start-0.0.1-SNAPSHOT.jar
@@ -316,7 +325,7 @@ initializr-start
 │  │          │  index.html
 │  │          │
 │  │          ├─classes
-│  │          │      com.waylau.spring.boot.InitializrStartApplicationTests.html
+│  │          │      com.example.demo.DemoApplicationTests.html
 │  │          │
 │  │          ├─css
 │  │          │      base-style.css
@@ -326,15 +335,17 @@ initializr-start
 │  │          │      report.js
 │  │          │
 │  │          └─packages
-│  │                  com.waylau.spring.boot.html
+│  │                  com.example.demo.html
 │  │
 │  ├─resources
 │  │  └─main
 │  │          application.properties
+│  │  └─static
+│  │  └─templates
 │  │
 │  ├─test-results
 │  │  └─test
-│  │      │  TEST-com.waylau.spring.boot.InitializrStartApplicationTests.xml
+│  │      │  TEST-com.example.demo.DemoApplicationTests.xml
 │  │      │
 │  │      └─binary
 │  │              output.bin
@@ -343,10 +354,8 @@ initializr-start
 │  │
 │  └─tmp
 │      ├─compileJava
-│      │  └─emptySourcePathRef
 │      ├─compileTestJava
-│      │  └─emptySourcePathRef
-│      └─jar
+│      └─bootJar
 │              MANIFEST.MF
 │
 ├─gradle
@@ -358,23 +367,26 @@ initializr-start
     ├─main
     │  ├─java
     │  │  └─com
-    │  │      └─waylau
-    │  │          └─spring
-    │  │              └─boot
-    │  │                      InitializrStartApplication.java
+    │  │      └─example
+    │  │          └─demo
+    │  │                     DemoApplication.java
     │  │
     │  └─resources
-    │          application.properties
+    │     │  application.properties
+    |     ├─statice
+    |     └─templates
     │
     └─test
         └─java
             └─com
-                └─waylau
-                    └─spring
-                        └─boot
-                                InitializrStartApplicationTests.java
+                └─example
+                    └─demo
+                              InitializrStartApplicationTests.java
 
  
+ 
+ 1. build.gradle 文件
+  在项目的根目录下可以看到 build.gradle 文件，这个是项目的构建脚本。 Gradle是
  
  
 
